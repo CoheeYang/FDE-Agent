@@ -10,6 +10,17 @@ try:  # 读取项目根目录 .env（存在才生效）
 except ImportError:
     pass
 
+try:  # Streamlit Community Cloud：从 st.secrets 兜底补齐（仅填充环境变量未设置的项）
+    import streamlit as _st
+    for _k in ("FDE_LLM_BASE_URL", "FDE_LLM_API_KEY", "FDE_LLM_MODEL",
+               "FDE_EMBEDDING_PROVIDER", "FDE_EMBEDDING_BASE_URL",
+               "FDE_EMBEDDING_API_KEY", "FDE_EMBEDDING_MODEL", "HF_ENDPOINT",
+               "ZHIPUAI_API_KEY", "DEEPSEEK_API_KEY", "DASHSCOPE_API_KEY"):
+        if _k in _st.secrets and not os.environ.get(_k):
+            os.environ[_k] = str(_st.secrets[_k])
+except Exception:
+    pass
+
 PROJECT_ROOT = Path(__file__).resolve().parent
 
 # HuggingFace 直连在国内网络常超时：在任何 HF 相关库导入前固定走镜像。
