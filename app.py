@@ -85,18 +85,23 @@ with st.sidebar:
                f"向量：本地 BGE（{store.store.keys().__len__() if hasattr(store, 'store') else '—'} 分块）")
 
     with st.expander("⚙️ 配置自检（部署排障）"):
-        st.markdown(f"- LLM 配置就绪：{'✅' if cfg.llm_ready else '❌'}")
-        st.markdown(f"- LLM 模型：`{cfg.llm_model or '未读到'}`")
-        st.markdown(f"- LLM Key：{'已设置' if cfg.llm_api_key else '未读到'}")
+        st.markdown(f"- LLM 配置就绪（缓存的 cfg）：{'✅' if cfg.llm_ready else '❌'}")
+        _env_m = os.environ.get("FDE_LLM_MODEL", "")
+        _env_k = os.environ.get("FDE_LLM_API_KEY", "")
+        st.markdown(f"- env FDE_LLM_MODEL：`{_env_m or '（空）'}`")
+        st.markdown(f"- env FDE_LLM_API_KEY："
+                    f"`{(_env_k[:6] + '…len=' + str(len(_env_k))) if _env_k else '（空）'}`")
         try:
-            _keys = sorted(st.secrets.keys())
-            st.markdown(f"- Secrets 键（仅键名）：{', '.join(_keys) or '（空）'}")
+            st.markdown(f"- st.secrets FDE_LLM_MODEL："
+                        f"`{st.secrets.get('FDE_LLM_MODEL') or '（None/空）'}`")
         except Exception as e:
-            st.markdown(f"- Secrets：❌ 解析失败（{type(e).__name__}）——"
-                        "多为 TOML 格式错误：每行需为 `键 = \"值\"`，注意等号两侧、半角引号")
-        _env = [k for k in ("FDE_LLM_BASE_URL", "FDE_LLM_API_KEY", "FDE_LLM_MODEL",
-                            "FDE_EMBEDDING_PROVIDER", "HF_ENDPOINT") if os.environ.get(k)]
-        st.markdown(f"- 已生效环境变量：{', '.join(_env) or '（无）'}")
+            st.markdown(f"- st.secrets：❌ 读取异常 {type(e).__name__}")
+        try:
+            _c2 = C.Config()
+            st.markdown(f"- 重新实例化 Config："
+                        f"{'✅ 就绪（' + _c2.llm_model + '）' if _c2.llm_ready else '❌ 未就绪'}")
+        except Exception as e:
+            st.markdown(f"- 重新实例化 Config：异常 {type(e).__name__}: {e}")
 
     if mode_key == "d":
         agent = get_agent()
