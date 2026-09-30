@@ -10,16 +10,30 @@ try:  # 读取项目根目录 .env（存在才生效）
 except ImportError:
     pass
 
-try:  # Streamlit Community Cloud：从 st.secrets 兜底补齐（仅填充环境变量未设置的项）
-    import streamlit as _st
-    for _k in ("FDE_LLM_BASE_URL", "FDE_LLM_API_KEY", "FDE_LLM_MODEL",
-               "FDE_EMBEDDING_PROVIDER", "FDE_EMBEDDING_BASE_URL",
-               "FDE_EMBEDDING_API_KEY", "FDE_EMBEDDING_MODEL", "HF_ENDPOINT",
-               "ZHIPUAI_API_KEY", "DEEPSEEK_API_KEY", "DASHSCOPE_API_KEY"):
-        if _k in _st.secrets and not os.environ.get(_k):
-            os.environ[_k] = str(_st.secrets[_k])
-except Exception:
-    pass
+
+def _merge_streamlit_secrets() -> None:
+    """Streamlit Community Cloud：把 st.secrets 中的配置提升为环境变量（仅填空缺项）。
+
+    st.secrets 为懒加载，Streamlit 要到首次访问时才把 secrets 写入 os.environ；
+    若 load_core 的 cache_resource 抢先缓存了未就绪的 Config，会出现
+    「环境变量已生效但 cfg 为空」的竞态。本函数在模块导入与 Config 实例化时
+    主动触发解析，消除该时序问题。非 Streamlit 环境下静默跳过。
+    """
+    try:
+        import streamlit as _st
+        for _k in ("FDE_LLM_BASE_URL", "FDE_LLM_API_KEY", "FDE_LLM_MODEL",
+                   "FDE_EMBEDDING_PROVIDER", "FDE_EMBEDDING_BASE_URL",
+                   "FDE_EMBEDDING_API_KEY", "FDE_EMBEDDING_MODEL", "HF_ENDPOINT",
+                   "ZHIPUAI_API_KEY", "DEEPSEEK_API_KEY", "DASHSCOPE_API_KEY"):
+            if not os.environ.get(_k):
+                _v = _st.secrets.get(_k)
+                if _v is not None:
+                    os.environ[_k] = str(_v)
+    except Exception:
+        pass
+
+
+_merge_streamlit_secrets()
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 
@@ -96,6 +110,7 @@ class Config:
                       或 local（本地 fastembed + BGE 中文小模型，适合 DeepSeek 等无 embedding 的提供方）。"""
 
     def __init__(self):
+        _merge_streamlit_secrets()  # 主动触发 secrets 解析，避免懒加载竞态
         self.llm_base_url = os.environ.get("FDE_LLM_BASE_URL", "")
         self.llm_api_key = os.environ.get("FDE_LLM_API_KEY", "")
         self.llm_model = os.environ.get("FDE_LLM_MODEL", "")
