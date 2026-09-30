@@ -50,6 +50,9 @@ def llm_for(temperature: float):
 
 try:
     cfg, store = load_core()
+    if not cfg.llm_ready:  # Secrets 懒加载竞态自愈：清缓存重建
+        load_core.clear()
+        cfg, store = load_core()
 except Exception as e:
     st.error(f"知识库加载失败：{e}\n\n请先运行 `python cli.py ingest` 构建向量库。")
     st.stop()
