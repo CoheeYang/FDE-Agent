@@ -4,6 +4,7 @@
   问答模式：客户提问，RAG 顾问带出处作答（可展开查看引用片段）
 启动：streamlit run app.py
 """
+import os
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -82,6 +83,20 @@ with st.sidebar:
     st.divider()
     st.caption(f"模型：`{cfg.llm_model}`\n\n"
                f"向量：本地 BGE（{store.store.keys().__len__() if hasattr(store, 'store') else '—'} 分块）")
+
+    with st.expander("⚙️ 配置自检（部署排障）"):
+        st.markdown(f"- LLM 配置就绪：{'✅' if cfg.llm_ready else '❌'}")
+        st.markdown(f"- LLM 模型：`{cfg.llm_model or '未读到'}`")
+        st.markdown(f"- LLM Key：{'已设置' if cfg.llm_api_key else '未读到'}")
+        try:
+            _keys = sorted(st.secrets.keys())
+            st.markdown(f"- Secrets 键（仅键名）：{', '.join(_keys) or '（空）'}")
+        except Exception as e:
+            st.markdown(f"- Secrets：❌ 解析失败（{type(e).__name__}）——"
+                        "多为 TOML 格式错误：每行需为 `键 = \"值\"`，注意等号两侧、半角引号")
+        _env = [k for k in ("FDE_LLM_BASE_URL", "FDE_LLM_API_KEY", "FDE_LLM_MODEL",
+                            "FDE_EMBEDDING_PROVIDER", "HF_ENDPOINT") if os.environ.get(k)]
+        st.markdown(f"- 已生效环境变量：{', '.join(_env) or '（无）'}")
 
     if mode_key == "d":
         agent = get_agent()
