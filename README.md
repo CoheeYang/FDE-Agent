@@ -47,6 +47,28 @@ python cli.py selftest
 （fastembed + `BAAI/bge-small-zh-v1.5`，DeepSeek 无 embedding 接口故走本地，
 模型缓存于 `data/models/`，检索为真实语义向量）。
 
+## 云端部署（Streamlit Community Cloud）
+
+免费部署完整版（含本地向量模型）。仓库需为 public：
+
+1. 打开 [share.streamlit.io](https://share.streamlit.io)，用 GitHub 登录；
+2. **New app** → Repository 选 `CoheeYang/FDE-Agent`，Branch 选 `main`，Main file path 填 `app.py`；
+3. **Advanced settings** → Python version 选 `3.13`，Secrets 填入：
+
+   ```toml
+   FDE_LLM_BASE_URL = "https://api.deepseek.com/v1"
+   FDE_LLM_API_KEY = "sk-你的Key"
+   FDE_LLM_MODEL = "deepseek-chat"
+   FDE_EMBEDDING_PROVIDER = "local"
+   HF_ENDPOINT = "https://huggingface.co"
+   ```
+
+   > `HF_ENDPOINT` 必填：覆盖代码里为国内网络预设的镜像，Streamlit Cloud 服务器直连
+   > huggingface.co 更快更稳。Secrets 会以环境变量注入，优先级高于 `.env`。
+
+4. Deploy。向量库 `data/vectorstore.json` 已随仓库提供，无需重新 ingest；
+   首次启动会自动下载 BGE 向量模型（约 90MB），冷启动约 1–2 分钟属正常现象。
+
 ## 两种能力（对应需求）
 
 ### 能力一：结合客户痛点做诊断（主动提问）
