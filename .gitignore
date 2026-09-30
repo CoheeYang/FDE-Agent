@@ -1,0 +1,18 @@
+# 密钥
+.env
+
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# 本地向量模型权重（约94MB，fastembed 首次运行自动下载 / Docker 构建时下载）
+data/models/
+
+# 运行时生成的诊断报告
+data/reports/
+
+# Vercel
+.vercel

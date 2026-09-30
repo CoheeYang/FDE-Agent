@@ -1,0 +1,7 @@
+langchain-core>=1.0
+langchain-openai>=1.0
+langchain-text-splitters>=1.0
+python-dotenv>=1.0
+PyMuPDF>=1.24
+streamlit>=1.40
+fastembed>=0.4
