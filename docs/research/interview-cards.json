@@ -1,0 +1,1476 @@
+{
+  "version": "0.1.0",
+  "date": "2026-10-01",
+  "language": "zh-CN",
+  "model_training": false,
+  "production_ready": false,
+  "validation_status": "research_seed_not_expert_validated",
+  "scope": "企业AI转型初步分诊、追问和对齐；不输出最终架构、战略处方或效果保证",
+  "selection_rule": "优先澄清当前重大影响、冲突、能改变分流的未知；每轮一个主题1–2问；充分时提前结束。",
+  "cards": [
+    {
+      "id": "Q001",
+      "group": "开场",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "用户只说想上AI或想请FDE",
+      "question": "最近哪件具体业务上的事，让你觉得现有做法撑不住？",
+      "why_ask": "区分实际业务阻塞与泛化的转型焦虑",
+      "answer_branches": [
+        {
+          "condition": "有具体事件",
+          "next_action": "进入事件回放"
+        },
+        {
+          "condition": "没有具体事件",
+          "next_action": "探索一项重复任务，允许转学习路径"
+        }
+      ],
+      "alignment_move": "可以只讲最近一次，不需要先给财务数字。",
+      "stop_condition": "用户给出事件，或确认当前主要诉求是学习",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L05",
+        "D01",
+        "D12"
+      ]
+    },
+    {
+      "id": "Q002",
+      "group": "开场",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "用户角色和观察范围不清",
+      "question": "这件事是你亲手处理的，还是其他同事向你反馈的？",
+      "why_ask": "区分亲历、转述与不同角色的证据范围",
+      "answer_branches": [
+        {
+          "condition": "亲历",
+          "next_action": "继续追问操作步骤"
+        },
+        {
+          "condition": "转述",
+          "next_action": "标注来源，并列出需要操作者补充的问题"
+        }
+      ],
+      "alignment_move": "目前我先按你了解到的情况记录，不把它当现场核验。",
+      "stop_condition": "观察者和证据范围清楚",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L05",
+        "D01"
+      ]
+    },
+    {
+      "id": "Q003",
+      "group": "开场",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "有多个诉求但优先级不清",
+      "question": "如果这次只弄清一件事，你最希望先解决哪一件？",
+      "why_ask": "确定当前分诊对象，控制对话范围",
+      "answer_branches": [
+        {
+          "condition": "能排序",
+          "next_action": "聚焦第一项"
+        },
+        {
+          "condition": "无法排序",
+          "next_action": "比较近期事件与影响，再让用户选择"
+        }
+      ],
+      "alignment_move": "先围绕这一项判断投入，其他问题先记下。",
+      "stop_condition": "当前业务域和问题范围已确认",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L06",
+        "D12"
+      ]
+    },
+    {
+      "id": "Q004",
+      "group": "开场",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "用户说同行都已AI化因此焦虑",
+      "question": "你希望跟进AI之后，哪项业务结果会发生变化？",
+      "why_ask": "避免用竞争焦虑替代业务目标",
+      "answer_branches": [
+        {
+          "condition": "有目标",
+          "next_action": "寻找最近事件与现状"
+        },
+        {
+          "condition": "无目标",
+          "next_action": "提供小范围学习与试用方向"
+        }
+      ],
+      "alignment_move": "当前更多是在找切入口，还不能据此判断需要昂贵服务。",
+      "stop_condition": "目标已具体化，或进入学习路径",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "D12",
+        "D01"
+      ]
+    },
+    {
+      "id": "Q005",
+      "group": "开场",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "用户已经给出具体工具或方案",
+      "question": "你想到这个方案，是因为哪件事现在做得不顺？",
+      "why_ask": "将解决方案假设还原为问题",
+      "answer_branches": [
+        {
+          "condition": "能说事件",
+          "next_action": "还原流程"
+        },
+        {
+          "condition": "仅有口号",
+          "next_action": "问最终使用者和期望结果"
+        }
+      ],
+      "alignment_move": "这个方案先当候选，我们把它要解决的事弄清楚。",
+      "stop_condition": "原始诉求与底层目标分开记录",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L05",
+        "P20"
+      ]
+    },
+    {
+      "id": "Q006",
+      "group": "事件",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "用户描述一次异常",
+      "question": "当时从发现问题到解决，你第一步做了什么？",
+      "why_ask": "建立真实路径，避免一次要求完整流程",
+      "answer_branches": [
+        {
+          "condition": "有操作细节",
+          "next_action": "顺着角色和信息交接追问"
+        },
+        {
+          "condition": "只描述标准SOP",
+          "next_action": "请讲当天额外做了什么"
+        }
+      ],
+      "alignment_move": "先按那一次发生的顺序来，不需要讲理想流程。",
+      "stop_condition": "起点、操作者与第一步清楚",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L05",
+        "D01"
+      ]
+    },
+    {
+      "id": "Q007",
+      "group": "事件",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "用户称流程慢",
+      "question": "最久卡在等待、整理信息，还是做判断？",
+      "why_ask": "区分等待时长、工作耗时与决策困难",
+      "answer_branches": [
+        {
+          "condition": "整理为主",
+          "next_action": "检查局部工具替代"
+        },
+        {
+          "condition": "等待或决策为主",
+          "next_action": "追问交接、权责和信息"
+        }
+      ],
+      "alignment_move": "我先区分耗时类型，避免把等待误算为可节省工时。",
+      "stop_condition": "主要延迟类型明确或待测量",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L05",
+        "D12"
+      ]
+    },
+    {
+      "id": "Q008",
+      "group": "事件",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "流程跨多人但交接不清",
+      "question": "这一步完成后，下一位同事依据什么知道可以继续？",
+      "why_ask": "发现交接与状态传递机制",
+      "answer_branches": [
+        {
+          "condition": "自动且一致",
+          "next_action": "检查例外路径"
+        },
+        {
+          "condition": "靠询问或表格",
+          "next_action": "记录跨系统与责任线索"
+        }
+      ],
+      "alignment_move": "我们找的是信息和责任的交接点，不是评判个人能力。",
+      "stop_condition": "至少一处关键交接的输入和输出明确",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L05",
+        "P01"
+      ]
+    },
+    {
+      "id": "Q009",
+      "group": "事件",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "用户说问题经常发生",
+      "question": "最近一个月大概发生几次？不知道的话，能否先选一周记录？",
+      "why_ask": "建立频率量级，允许低成本补证",
+      "answer_branches": [
+        {
+          "condition": "有统计",
+          "next_action": "确认时间窗和定义"
+        },
+        {
+          "condition": "无统计",
+          "next_action": "记录估计并提出采样动作"
+        }
+      ],
+      "alignment_move": "这个数字如果是印象，我会标作估计。",
+      "stop_condition": "频率来源已记录，或有可行采样方式",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L06",
+        "D12"
+      ]
+    },
+    {
+      "id": "Q010",
+      "group": "事件",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "用户将某一步称为无意义或浪费",
+      "question": "保留这一步，是为了满足什么业务要求？",
+      "why_ask": "检验合理选择或控制是否被误判为低效",
+      "answer_branches": [
+        {
+          "condition": "有必须保留条件",
+          "next_action": "记录约束"
+        },
+        {
+          "condition": "无人知道",
+          "next_action": "请流程owner确认，暂不建议删除"
+        }
+      ],
+      "alignment_move": "看起来重复不等于可以删，我们先理解它保护什么。",
+      "stop_condition": "业务理由已知，或明确需要谁确认",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L05",
+        "L12"
+      ]
+    },
+    {
+      "id": "Q011",
+      "group": "例外",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "常规流程听起来很顺",
+      "question": "上一次正常规则处理不了的情况，最后是谁怎么解决的？",
+      "why_ask": "发现未写进SOP的例外与人工裁决",
+      "answer_branches": [
+        {
+          "condition": "例外可编码",
+          "next_action": "检查规则与数据"
+        },
+        {
+          "condition": "依赖个人经验",
+          "next_action": "记录知识和责任缺口"
+        }
+      ],
+      "alignment_move": "把正常与异常两种路径分开，建议可能不同。",
+      "stop_condition": "一个异常、处理者和恢复方式已记录",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L05",
+        "L11"
+      ]
+    },
+    {
+      "id": "Q012",
+      "group": "例外",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "用户说全流程可以自动化",
+      "question": "这条流程里，哪些动作做错后能撤回，哪些很难撤回？",
+      "why_ask": "按具体行动的后果区分辅助与执行",
+      "answer_branches": [
+        {
+          "condition": "可逆局部",
+          "next_action": "考虑小范围试用"
+        },
+        {
+          "condition": "高影响或不可逆",
+          "next_action": "转权限与专业评审问题"
+        }
+      ],
+      "alignment_move": "是否自动执行，要按动作分别判断。",
+      "stop_condition": "高影响动作和可逆性已分类",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L12",
+        "P15",
+        "D15"
+      ]
+    },
+    {
+      "id": "Q013",
+      "group": "例外",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "系统需支持高峰但资料只含正常日",
+      "question": "上次月底、大促或插单时，流程哪一步和平时不一样？",
+      "why_ask": "识别容量、临时规则和异常输入",
+      "answer_branches": [
+        {
+          "condition": "仍稳定",
+          "next_action": "保留正常路径验证"
+        },
+        {
+          "condition": "规则或人员改变",
+          "next_action": "增加异常评测与角色补证"
+        }
+      ],
+      "alignment_move": "不按普通日的一次表现推断所有时期。",
+      "stop_condition": "至少一个压力场景已知或确认为不适用",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L05",
+        "L11"
+      ]
+    },
+    {
+      "id": "Q014",
+      "group": "例外",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "用户过度依赖某位关键员工",
+      "question": "如果这位同事休假，哪一步会停下来？别人靠什么接手？",
+      "why_ask": "识别知识单点和交接需求",
+      "answer_branches": [
+        {
+          "condition": "已有可用规则",
+          "next_action": "检查实际接手案例"
+        },
+        {
+          "condition": "无法接手",
+          "next_action": "区分知识记录与跨系统工程缺口"
+        }
+      ],
+      "alignment_move": "先判断要补记录、流程还是系统，不直接归为模型问题。",
+      "stop_condition": "单点位置和替代方式明确",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L18",
+        "L14"
+      ]
+    },
+    {
+      "id": "Q015",
+      "group": "目标",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "用户说提效但成果口径不清",
+      "question": "你更希望减少费用、接更多业务，还是减少错误和返工？",
+      "why_ask": "区分不同收益的兑现路径",
+      "answer_branches": [
+        {
+          "condition": "现金或收入目标",
+          "next_action": "追问可归因结果"
+        },
+        {
+          "condition": "质量目标",
+          "next_action": "追问错误定义和后果"
+        }
+      ],
+      "alignment_move": "这几类价值先分开算，不互相替代。",
+      "stop_condition": "首要结果类型已对齐",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L06",
+        "D12"
+      ]
+    },
+    {
+      "id": "Q016",
+      "group": "目标",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "出现一个业务数字",
+      "question": "这个数统计哪类业务、哪段时间？包含哪些情况？",
+      "why_ask": "确认分子分母、时间窗和覆盖范围",
+      "answer_branches": [
+        {
+          "condition": "定义完整",
+          "next_action": "记录出处后使用"
+        },
+        {
+          "condition": "定义含混",
+          "next_action": "保留原话，暂不做比较或经济结论"
+        }
+      ],
+      "alignment_move": "只有口径一致，前后比较才有意义。",
+      "stop_condition": "数字可解释，或被标为未确认",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L06",
+        "D12"
+      ]
+    },
+    {
+      "id": "Q017",
+      "group": "目标",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "用户给出节省工时",
+      "question": "省下的时间实际会减少哪项费用，或让你们多完成什么？",
+      "why_ask": "避免将工时机械折算现金和裁员",
+      "answer_branches": [
+        {
+          "condition": "有兑现路径",
+          "next_action": "估计范围并请财务确认"
+        },
+        {
+          "condition": "无兑现路径",
+          "next_action": "记录为效率体验，暂不承诺ROI"
+        }
+      ],
+      "alignment_move": "工作更轻松有价值，但与现金收益分开记录。",
+      "stop_condition": "兑现方式清楚或不确定性明确",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L15",
+        "P21"
+      ]
+    },
+    {
+      "id": "Q018",
+      "group": "目标",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "用户期望大规模转型",
+      "question": "如果先做很小一段，什么结果会让你觉得值得继续？",
+      "why_ask": "确认最小验证与继续条件",
+      "answer_branches": [
+        {
+          "condition": "有可测指标",
+          "next_action": "确认基线和样本"
+        },
+        {
+          "condition": "只有主观满意",
+          "next_action": "设计业务方可审核的样例"
+        }
+      ],
+      "alignment_move": "先约定怎么知道有用，再讨论投入范围。",
+      "stop_condition": "小范围验证结果与评判人明确",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L06",
+        "L11",
+        "D12"
+      ]
+    },
+    {
+      "id": "Q019",
+      "group": "目标",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "用户把问题归因于模型",
+      "question": "同期数据、产品、人员或流程有过什么变化？",
+      "why_ask": "寻找竞争解释与混杂因素",
+      "answer_branches": [
+        {
+          "condition": "有变化",
+          "next_action": "分别核验，暂缓单一归因"
+        },
+        {
+          "condition": "无已知变化",
+          "next_action": "仍检查证据，不自动确认模型病因"
+        }
+      ],
+      "alignment_move": "当前保留多个解释，看看哪项证据能区分。",
+      "stop_condition": "替代解释已覆盖，或明确缺何种证据",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L05",
+        "D12"
+      ]
+    },
+    {
+      "id": "Q020",
+      "group": "数据",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "用户说数据都在或已经互通",
+      "question": "拿一个具体订单，各系统能找到同一件事和一致状态吗？",
+      "why_ask": "区分物理接入与语义、时点一致",
+      "answer_branches": [
+        {
+          "condition": "能关联",
+          "next_action": "检查例外、更新和权限"
+        },
+        {
+          "condition": "不能关联",
+          "next_action": "记录标识、口径、所有者缺口"
+        }
+      ],
+      "alignment_move": "有接口不一定等于这个决策所需的信息已经对齐。",
+      "stop_condition": "具体事件的数据关联方式明确",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "P01",
+        "P14",
+        "L05"
+      ]
+    },
+    {
+      "id": "Q021",
+      "group": "数据",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "不同部门提供冲突数字",
+      "question": "两边是在同一时间、同一类业务和同一口径下统计的吗？",
+      "why_ask": "优先澄清定义，而非判断谁说谎",
+      "answer_branches": [
+        {
+          "condition": "口径不同",
+          "next_action": "保存各自定义，不直接相减"
+        },
+        {
+          "condition": "同口径仍冲突",
+          "next_action": "保留双方，安排材料核验"
+        }
+      ],
+      "alignment_move": "目前两种陈述都保留，先弄清差异来源。",
+      "stop_condition": "冲突解释清楚或有核验责任人",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L07",
+        "D12"
+      ]
+    },
+    {
+      "id": "Q022",
+      "group": "数据",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "信息正确但可能更新慢",
+      "question": "当时做决定时能拿到的信息，和事后报表里的一样吗？",
+      "why_ask": "区分决策时可得信息与事后信息，避免事后偏差",
+      "answer_branches": [
+        {
+          "condition": "实时可得",
+          "next_action": "检查使用和规则"
+        },
+        {
+          "condition": "事后才有",
+          "next_action": "记录时效约束与补证需求"
+        }
+      ],
+      "alignment_move": "事后知道的结果不能当作当时就有的输入。",
+      "stop_condition": "决策时点和数据时效明确",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "P14",
+        "D12"
+      ]
+    },
+    {
+      "id": "Q023",
+      "group": "数据",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "用户不会接口或数据库细节",
+      "question": "这项资料现在谁最了解？能否先提供一份去掉敏感信息的字段说明或样例？",
+      "why_ask": "把不可回答问题转为跨角色补证",
+      "answer_branches": [
+        {
+          "condition": "有对接人",
+          "next_action": "形成具体材料清单"
+        },
+        {
+          "condition": "无对接人",
+          "next_action": "标准备度缺口，保留必要性判断"
+        }
+      ],
+      "alignment_move": "你不需要回答接口细节，我们记清需要找谁。",
+      "stop_condition": "材料、角色与访问范围明确或待协调",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "D12",
+        "L05"
+      ]
+    },
+    {
+      "id": "Q024",
+      "group": "数据",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "现有数据不足且用户以为AI能推测",
+      "question": "有经验的人只看这些信息，能做出这项判断吗？还缺什么？",
+      "why_ask": "检验信息是否足以支撑目标，避免凭空补全",
+      "answer_branches": [
+        {
+          "condition": "专家可做",
+          "next_action": "提取所用依据和例外"
+        },
+        {
+          "condition": "专家也不可做",
+          "next_action": "定义最少信息补齐动作"
+        }
+      ],
+      "alignment_move": "缺信息时先补信息，不把猜测写成事实。",
+      "stop_condition": "可做判断的最低信息需求明确",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "D12"
+      ]
+    },
+    {
+      "id": "Q025",
+      "group": "决策",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "用户要求报表或知识库",
+      "question": "这份信息出来以后，谁据此做什么决定？",
+      "why_ask": "将数据任务连接到实际业务使用",
+      "answer_branches": [
+        {
+          "condition": "有决定与行动",
+          "next_action": "追问输入、逻辑、责任"
+        },
+        {
+          "condition": "只是堆材料",
+          "next_action": "先确认最终用途"
+        }
+      ],
+      "alignment_move": "我们用这个决策来判断功能是否有用。",
+      "stop_condition": "信息的使用者与用途明确",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "P14",
+        "D12"
+      ]
+    },
+    {
+      "id": "Q026",
+      "group": "决策",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "企业主要依靠经验决策",
+      "question": "那次决定依据了哪些信息？有没有必须遵守或允许例外的规则？",
+      "why_ask": "提取业务逻辑，同时保留裁决边界",
+      "answer_branches": [
+        {
+          "condition": "稳定规则",
+          "next_action": "评估普通软件或规则引擎"
+        },
+        {
+          "condition": "大量例外",
+          "next_action": "记录人工裁决与知识捕获需求"
+        }
+      ],
+      "alignment_move": "先把规则和例外分开，不要求所有经验一次写清。",
+      "stop_condition": "决策逻辑及例外边界已记录",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "P14",
+        "L14"
+      ]
+    },
+    {
+      "id": "Q027",
+      "group": "决策",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "系统输出建议但没人执行",
+      "question": "拿到建议后，谁有权决定，执行结果会回到哪里？",
+      "why_ask": "识别决策与行动之间的断点",
+      "answer_branches": [
+        {
+          "condition": "有责任与反馈",
+          "next_action": "考虑内部小验证"
+        },
+        {
+          "condition": "无人负责或无法反馈",
+          "next_action": "优先组织对齐"
+        }
+      ],
+      "alignment_move": "建议能被执行和验证，才形成一个闭环。",
+      "stop_condition": "行动owner和反馈路径明确",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "P14",
+        "P15"
+      ]
+    },
+    {
+      "id": "Q028",
+      "group": "历史与替代",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "用户想重建失败的AI项目",
+      "question": "上次停用时，大家改用什么办法？为什么那个办法更可靠？",
+      "why_ask": "了解真实替代和采用失败，避免重复投资",
+      "answer_branches": [
+        {
+          "condition": "替代能解决",
+          "next_action": "比较成本和可维护性"
+        },
+        {
+          "condition": "替代靠救火",
+          "next_action": "记录具体缺口与样例"
+        }
+      ],
+      "alignment_move": "先理解不用它的原因，再决定是否换系统。",
+      "stop_condition": "停止原因与替代路径已知",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L18",
+        "L05",
+        "P21"
+      ]
+    },
+    {
+      "id": "Q029",
+      "group": "历史与替代",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "某场景可能已有标准功能",
+      "question": "现有软件或标准产品做过这件事吗？不够用的具体是哪一步？",
+      "why_ask": "排除不必要定制和昂贵转介",
+      "answer_branches": [
+        {
+          "condition": "已有且够用",
+          "next_action": "R1或内部实施"
+        },
+        {
+          "condition": "不够用有实例",
+          "next_action": "继续确认业务特异与集成缺口"
+        }
+      ],
+      "alignment_move": "把具体缺口列出来，避免整体重建。",
+      "stop_condition": "标准替代的覆盖与限制明确",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "D13",
+        "L06"
+      ]
+    },
+    {
+      "id": "Q030",
+      "group": "历史与替代",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "用户默认必须使用AI",
+      "question": "如果先用明确规则或改交接方式，这件事能改善多少？",
+      "why_ask": "检验更简单路径；不能让用户凭空预测",
+      "answer_branches": [
+        {
+          "condition": "有历史证据",
+          "next_action": "比较低成本路径"
+        },
+        {
+          "condition": "不知道",
+          "next_action": "设计小范围规则或流程验证"
+        }
+      ],
+      "alignment_move": "不用猜改善百分比，先看是否已有可验证的办法。",
+      "stop_condition": "简单替代被检验或列入待验证项",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "D12"
+      ]
+    },
+    {
+      "id": "Q031",
+      "group": "组织",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "用户称领导支持但具体投入不清",
+      "question": "如果先改这一小段，谁能协调业务和IT并持续负责？",
+      "why_ask": "区分口头支持与可执行owner",
+      "answer_branches": [
+        {
+          "condition": "有责任人和时间",
+          "next_action": "准备度增强"
+        },
+        {
+          "condition": "没人可负责",
+          "next_action": "R2或准备度待补，不等于永久不适合FDE"
+        }
+      ],
+      "alignment_move": "外部团队也需要内部有人接住。",
+      "stop_condition": "协调者与投入条件清楚",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L07",
+        "L05"
+      ]
+    },
+    {
+      "id": "Q032",
+      "group": "组织",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "上线可能增加某角色工作",
+      "question": "新做法会让谁多做检查或维护？这些人认可吗？",
+      "why_ask": "识别成本转移和采用阻力",
+      "answer_branches": [
+        {
+          "condition": "已共识",
+          "next_action": "记录承担方式"
+        },
+        {
+          "condition": "未沟通或反对",
+          "next_action": "请真实使用者补充"
+        }
+      ],
+      "alignment_move": "减少一个人的工作，不应把成本藏到另一个人身上。",
+      "stop_condition": "受影响角色及新增工作已列明",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L07",
+        "L11"
+      ]
+    },
+    {
+      "id": "Q033",
+      "group": "组织",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "用户将问题称为系统故障",
+      "question": "信息都齐了以后，谁能拍板？不同部门会接受这个决定吗？",
+      "why_ask": "区分工程缺口与权责冲突",
+      "answer_branches": [
+        {
+          "condition": "能拍板",
+          "next_action": "深入数据和工程"
+        },
+        {
+          "condition": "不能",
+          "next_action": "R2先对齐，不靠新模型代替治理"
+        }
+      ],
+      "alignment_move": "若责任未对齐，自动化可能只是更快地产生争议。",
+      "stop_condition": "权责边界已清楚或冲突已记录",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L07",
+        "P14"
+      ]
+    },
+    {
+      "id": "Q034",
+      "group": "组织",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "用户问必须外请吗",
+      "question": "内部是否有人能完成这个范围并长期维护？缺的是时间、技能还是协调权？",
+      "why_ask": "区分外部必要性与已有内部能力",
+      "answer_branches": [
+        {
+          "condition": "能力充足",
+          "next_action": "R3或专项评审"
+        },
+        {
+          "condition": "明确缺口且问题重要",
+          "next_action": "考虑R4"
+        }
+      ],
+      "alignment_move": "请外部的理由要具体到缺口。",
+      "stop_condition": "内部替代能力与限制明确",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L05",
+        "L13",
+        "P18"
+      ]
+    },
+    {
+      "id": "Q035",
+      "group": "组织",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "内部推动过程反馈很慢",
+      "question": "做出一个小验证以后，通常多久能得到业务反馈？",
+      "why_ask": "检查是否有可用迭代条件",
+      "answer_branches": [
+        {
+          "condition": "可快速反馈",
+          "next_action": "适合有范围验证"
+        },
+        {
+          "condition": "长期无人评判",
+          "next_action": "先协调评判者与时间"
+        }
+      ],
+      "alignment_move": "迭代需要有人判断是否有用，不只是交付代码。",
+      "stop_condition": "评判人及反馈节奏明确",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L05",
+        "L11"
+      ]
+    },
+    {
+      "id": "Q036",
+      "group": "风险",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "拟自动执行资金、客户或生产动作",
+      "question": "它能直接改什么？哪一步必须由人确认？",
+      "why_ask": "明确行动而非笼统风险分数",
+      "answer_branches": [
+        {
+          "condition": "只提供草稿",
+          "next_action": "普通审核路径"
+        },
+        {
+          "condition": "可执行高影响动作",
+          "next_action": "追加权限、审计、回退并考虑R5"
+        }
+      ],
+      "alignment_move": "对不同动作分别设边界。",
+      "stop_condition": "实际行动权限与审核位置明确",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "P15",
+        "L12",
+        "D15"
+      ]
+    },
+    {
+      "id": "Q037",
+      "group": "风险",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "疑似已有失控或重大异常",
+      "question": "这个功能已经在真实业务里运行了吗？目前由谁接管异常？",
+      "why_ask": "区分计划、试验和已发生影响，确定紧迫性",
+      "answer_branches": [
+        {
+          "condition": "未运行",
+          "next_action": "计划阶段专业评审"
+        },
+        {
+          "condition": "已运行且造成影响",
+          "next_action": "联系当前owner优先处理"
+        }
+      ],
+      "alignment_move": "先区分现在发生的影响与未来设计问题。",
+      "stop_condition": "运行状态、影响和责任人明确",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L12",
+        "D15"
+      ]
+    },
+    {
+      "id": "Q038",
+      "group": "风险",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "需要访问企业资料但边界未知",
+      "question": "这次初步判断能用哪些材料？哪些需要在你们内部核验？",
+      "why_ask": "最小化初筛材料，明确访问范围",
+      "answer_branches": [
+        {
+          "condition": "可提供脱敏样例",
+          "next_action": "据此诊断"
+        },
+        {
+          "condition": "不能提供",
+          "next_action": "用字段和流程说明，保留待核验"
+        }
+      ],
+      "alignment_move": "初筛不需要直接开放所有生产数据。",
+      "stop_condition": "初筛材料范围明确",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L12",
+        "D01"
+      ]
+    },
+    {
+      "id": "Q039",
+      "group": "风险",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "用户要求零风险或绝对准确",
+      "question": "哪些错误必须提前拦住？谁来审核，出错后怎么恢复？",
+      "why_ask": "将绝对保证转成可验证的控制目标",
+      "answer_branches": [
+        {
+          "condition": "有明确控制",
+          "next_action": "查验证据"
+        },
+        {
+          "condition": "无控制",
+          "next_action": "R5或待设计，不给零风险承诺"
+        }
+      ],
+      "alignment_move": "可以讨论具体保障，不能保证任何情况下都不出错。",
+      "stop_condition": "关键错误类型、控制与责任明确",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L12",
+        "D15",
+        "A03"
+      ]
+    },
+    {
+      "id": "Q040",
+      "group": "探索合作",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "证据已支持可能需要FDE",
+      "question": "如果先请专家探索，最想确认哪一个未知？确认不了时如何停止？",
+      "why_ask": "约束付费发现，避免无底洞和提前处方",
+      "answer_branches": [
+        {
+          "condition": "有明确产出",
+          "next_action": "形成发现范围"
+        },
+        {
+          "condition": "仍要全企业转型",
+          "next_action": "先收缩到一个业务决策"
+        }
+      ],
+      "alignment_move": "先购买验证一个问题的工作，不自动进入大规模实施。",
+      "stop_condition": "探索问题、产物与中止条件明确",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L05",
+        "L06",
+        "P05"
+      ]
+    },
+    {
+      "id": "Q041",
+      "group": "探索合作",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "分诊完成且需讨论投入能力",
+      "question": "这次探索可以投入哪些内部人员和成本范围？超出哪些条件就暂停？",
+      "why_ask": "预算放在必要性判断后，用于可行性与范围",
+      "answer_branches": [
+        {
+          "condition": "边界明确",
+          "next_action": "可交给专家评估"
+        },
+        {
+          "condition": "无边界",
+          "next_action": "列为合作准备度待定"
+        }
+      ],
+      "alignment_move": "成本上限需要结合探索范围，不由AI凭空报价。",
+      "stop_condition": "资源范围与暂停条件已对齐",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L05",
+        "L15"
+      ]
+    },
+    {
+      "id": "Q042",
+      "group": "确认",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "已形成事实摘要",
+      "question": "我理解的事情经过是……这里哪些不准确或还只是估计？",
+      "why_ask": "逐项核对事实，允许纠正与不知道",
+      "answer_branches": [
+        {
+          "condition": "认可",
+          "next_action": "记录确认轮次和范围"
+        },
+        {
+          "condition": "纠正",
+          "next_action": "保留变更，重查相关判断"
+        }
+      ],
+      "alignment_move": "这次只确认事实，不让点头变成接受方案。",
+      "stop_condition": "关键事实已确认或未知保留",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "D01",
+        "D12"
+      ]
+    },
+    {
+      "id": "Q043",
+      "group": "确认",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "事实清楚但目标仍可能错位",
+      "question": "你更想改变的是……而必须保留的是……这样理解对吗？",
+      "why_ask": "分开确认目标与约束",
+      "answer_branches": [
+        {
+          "condition": "认可",
+          "next_action": "准备分流"
+        },
+        {
+          "condition": "不认可",
+          "next_action": "回到目标，不继续推方案"
+        }
+      ],
+      "alignment_move": "目标、范围、预算和方案分别确认。",
+      "stop_condition": "当前目标与边界已对齐",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "D12",
+        "L06"
+      ]
+    },
+    {
+      "id": "Q044",
+      "group": "确认",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "准备发布分流建议",
+      "question": "当前我建议……依据是……仍缺……如果补充发现……建议会改变。与你的情况相符吗？",
+      "why_ask": "让用户审阅结论链和可证伪条件",
+      "answer_branches": [
+        {
+          "condition": "符合",
+          "next_action": "给补证或交接卡"
+        },
+        {
+          "condition": "反对",
+          "next_action": "追问哪条事实或哪项取舍不同"
+        }
+      ],
+      "alignment_move": "请指出具体不符合的部分，建议可以修改。",
+      "stop_condition": "结论状态、依据与变化条件明确",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "D12",
+        "L14"
+      ]
+    },
+    {
+      "id": "Q045",
+      "group": "确认",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "用户反对判断",
+      "question": "你觉得不符合的是哪条事实，还是我们对优先级的理解不同？",
+      "why_ask": "将反对转成事实、规则或目标修正",
+      "answer_branches": [
+        {
+          "condition": "事实错",
+          "next_action": "撤回相关判断"
+        },
+        {
+          "condition": "优先级不同",
+          "next_action": "更新目标并比较路线"
+        }
+      ],
+      "alignment_move": "用户反对是需要理解的信号，不是自动认定用户正确或错误。",
+      "stop_condition": "反对类型与下一步修正明确",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L14",
+        "D01"
+      ]
+    },
+    {
+      "id": "Q046",
+      "group": "行业制造",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "制造场景交期或排产异常",
+      "question": "最近那单最早偏离计划的是物料、设备、工艺变更，还是插单？",
+      "why_ask": "定位实际瓶颈，保留多因素",
+      "answer_branches": [
+        {
+          "condition": "信息与系统不一致",
+          "next_action": "检查跨系统关联"
+        },
+        {
+          "condition": "物理资源约束",
+          "next_action": "请现场工艺或调度角色核验"
+        }
+      ],
+      "alignment_move": "不能把物理约束自动当成大模型能力不足。",
+      "stop_condition": "一个订单的瓶颈与现场约束明确",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L20",
+        "L05"
+      ]
+    },
+    {
+      "id": "Q047",
+      "group": "行业制造",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "用户报告高报废或质量问题",
+      "question": "这项质量数字在哪道工序测？返工和最终报废分别怎么统计？",
+      "why_ask": "避免跨产品和工序套行业阈值",
+      "answer_branches": [
+        {
+          "condition": "口径可比",
+          "next_action": "据来源看趋势"
+        },
+        {
+          "condition": "口径不同",
+          "next_action": "先分组测量，不给行业高低定论"
+        }
+      ],
+      "alignment_move": "没有可比基准时建立自己的基线。",
+      "stop_condition": "工序、分母、产品范围与来源已知",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L20",
+        "L06"
+      ]
+    },
+    {
+      "id": "Q048",
+      "group": "行业零售",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "零售缺货或积压",
+      "question": "最近缺货的那件商品，促销、仓库、门店与补货决策怎样衔接？",
+      "why_ask": "连起业务事件而非只要预测模型",
+      "answer_branches": [
+        {
+          "condition": "现有功能覆盖",
+          "next_action": "R1或R3"
+        },
+        {
+          "condition": "多域语义与决策断点",
+          "next_action": "考虑R4"
+        }
+      ],
+      "alignment_move": "预测改善要与补货执行和业务目标一起判断。",
+      "stop_condition": "SKU事件、信息、责任和动作明确",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L21",
+        "P14"
+      ]
+    },
+    {
+      "id": "Q049",
+      "group": "行业客服",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "客户要AI客服",
+      "question": "最近转人工的那单，是缺知识、查不到实时信息、不能执行，还是需要例外裁决？",
+      "why_ask": "区分FAQ、实时查询、行动与专业判断",
+      "answer_branches": [
+        {
+          "condition": "知识类",
+          "next_action": "标准工具先试"
+        },
+        {
+          "condition": "行动或裁决类",
+          "next_action": "追加系统与责任边界"
+        }
+      ],
+      "alignment_move": "几类工单可以走不同路径。",
+      "stop_condition": "至少一种工单分类与必要数据明确",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L21",
+        "L05"
+      ]
+    },
+    {
+      "id": "Q050",
+      "group": "行业文书",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "用户想自动生成标书、报价或报告",
+      "question": "哪些内容只是整理，哪些数字或对外承诺必须由负责人核对？",
+      "why_ask": "区分可逆起草与有责任的对外输出",
+      "answer_branches": [
+        {
+          "condition": "内部草稿",
+          "next_action": "R0/R1/R3"
+        },
+        {
+          "condition": "事实与对外责任复杂",
+          "next_action": "补核验，必要时专项专家"
+        }
+      ],
+      "alignment_move": "起草快不代表可以省略最终业务核对。",
+      "stop_condition": "输出用途和最终核对责任明确",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L19",
+        "L21"
+      ]
+    },
+    {
+      "id": "Q051",
+      "group": "行业高影响",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "金融、政企或医疗场景但用途不清",
+      "question": "这项AI只整理材料，还是会改变审批、交易或现实服务决定？",
+      "why_ask": "按用途分类而非行业标签自动升级",
+      "answer_branches": [
+        {
+          "condition": "整理且可复核",
+          "next_action": "按普通辅助任务评估"
+        },
+        {
+          "condition": "高影响决定",
+          "next_action": "进入R5专项评审"
+        }
+      ],
+      "alignment_move": "行业背景是线索，实际动作决定额外问题。",
+      "stop_condition": "业务用途和失败后果明确",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L19",
+        "L12",
+        "D15"
+      ]
+    },
+    {
+      "id": "Q052",
+      "group": "复诊",
+      "review_status": "draft_requires_expert_review",
+      "authorship": "project_authored_design",
+      "source_relationship": "methodological_inspiration_not_verbatim_or_validated_rule",
+      "trigger": "完成了上次建议的验证",
+      "question": "上次验证实际发生了什么？哪项结果或反馈让你改变了想法？",
+      "why_ask": "根据新证据更新建议，避免重复初诊",
+      "answer_branches": [
+        {
+          "condition": "有新结果",
+          "next_action": "更新假设与分流"
+        },
+        {
+          "condition": "没有执行",
+          "next_action": "查障碍，不默认需要更多技术"
+        }
+      ],
+      "alignment_move": "建议会随证据和目标变化。",
+      "stop_condition": "新证据、目标变化和建议版本明确",
+      "unknown_answer_policy": "允许不知道、估计和不适用；最多再澄清两次仍不可答时，转材料或其他角色补证，不补造事实。",
+      "avoid": "不把提示的分支当作确定病因；不重复已回答的问题；不同时把整张卡读给用户。",
+      "source_ids": [
+        "L11",
+        "L14"
+      ]
+    }
+  ]
+}

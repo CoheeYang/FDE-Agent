@@ -1,0 +1,542 @@
+{
+  "version": "0.1.0",
+  "date": "2026-10-01",
+  "language": "zh-CN",
+  "model_training": false,
+  "production_ready": false,
+  "validation_status": "research_seed_not_expert_validated",
+  "scope": "企业AI转型初步分诊、追问和对齐；不输出最终架构、战略处方或效果保证",
+  "selection_rule": "优先澄清当前重大影响、冲突、能改变分流的未知；每轮一个主题1–2问；充分时提前结束。",
+  "cases": [
+    {
+      "id": "T01",
+      "name": "小团队局部文书任务",
+      "synthetic": true,
+      "golden": false,
+      "review_status": "draft_requires_independent_expert_adjudication",
+      "initial_user_message": "我们8个人，是不是必须请FDE做AI native？",
+      "hidden_facts": [
+        {
+          "release_when_asked_about": "真实事件",
+          "user_reply": "每周内部会议纪要与客户邮件整理，两三小时。"
+        },
+        {
+          "release_when_asked_about": "输出用途",
+          "user_reply": "内部看，负责人检查，不发给客户也不改订单。"
+        },
+        {
+          "release_when_asked_about": "内部能力与现有工具",
+          "user_reply": "运营能维护，工具已有，只是没有统一模板。"
+        }
+      ],
+      "must_cover_before_recommendation": [
+        "具体任务和最近事件",
+        "内部或对外用途",
+        "内部负责人和现有替代"
+      ],
+      "acceptable_route_candidates": [
+        "R0",
+        "R1"
+      ],
+      "needs_evidence_until_conditions_confirmed": false,
+      "critical_failure_examples": [
+        "人数少因此永远不用专家",
+        "未问任务即询问预算",
+        "承诺裁员或现金收益"
+      ],
+      "grading_note": "允许其他合理追问顺序；应按证据披露阶段评判；候选路线不是唯一标准答案。专家必须确认必要条件及紧迫性。",
+      "source_ids": [
+        "L05",
+        "L11",
+        "D12",
+        "A03"
+      ],
+      "evidence_release_rule": "先达到必要主题覆盖，再按已披露事实给暂定判断；关键未知未解决时说明补证，不提前使用隐藏情节。"
+    },
+    {
+      "id": "T02",
+      "name": "跨系统制造排产发现",
+      "synthetic": true,
+      "golden": false,
+      "review_status": "draft_requires_independent_expert_adjudication",
+      "initial_user_message": "交付总拖，想用AI排产。",
+      "hidden_facts": [
+        {
+          "release_when_asked_about": "最近订单",
+          "user_reply": "销售、仓库、车间核对两天，主任再排。"
+        },
+        {
+          "release_when_asked_about": "数据与例外",
+          "user_reply": "三处状态不同，替代物料和插单靠主任。"
+        },
+        {
+          "release_when_asked_about": "历史替代",
+          "user_reply": "现有排产模块试过，例外规则套不进去。"
+        },
+        {
+          "release_when_asked_about": "内部能力",
+          "user_reply": "IT无长期对接业务的人，业务owner愿意安排样例。"
+        },
+        {
+          "release_when_asked_about": "影响来源",
+          "user_reply": "每月数次，但损失还没核算。"
+        }
+      ],
+      "must_cover_before_recommendation": [
+        "信息核对与实际调度的区分",
+        "标准替代的缺口",
+        "owner与样例可得性",
+        "影响的证据状态"
+      ],
+      "acceptable_route_candidates": [
+        "R4"
+      ],
+      "needs_evidence_until_conditions_confirmed": true,
+      "critical_failure_examples": [
+        "直接开出完整数字孪生方案",
+        "把两天等待全部算省下工时",
+        "仅因没有立即给生产权限拒绝所有FDE发现"
+      ],
+      "grading_note": "允许其他合理追问顺序；应按证据披露阶段评判；候选路线不是唯一标准答案。专家必须确认必要条件及紧迫性。",
+      "source_ids": [
+        "L05",
+        "L11",
+        "D12",
+        "A03"
+      ],
+      "evidence_release_rule": "先达到必要主题覆盖，再按已披露事实给暂定判断；关键未知未解决时说明补证，不提前使用隐藏情节。"
+    },
+    {
+      "id": "T03",
+      "name": "已有AI项目被弃用的组织原因",
+      "synthetic": true,
+      "golden": false,
+      "review_status": "draft_requires_independent_expert_adjudication",
+      "initial_user_message": "知识库半年没人用，想换Agent。",
+      "hidden_facts": [
+        {
+          "release_when_asked_about": "最近不用事件",
+          "user_reply": "例外折扣仍找总监，标准政策与临时决策不一致。"
+        },
+        {
+          "release_when_asked_about": "规则和责任",
+          "user_reply": "例外没记录，照标准执行也可能被追责。"
+        },
+        {
+          "release_when_asked_about": "技术表现",
+          "user_reply": "一般政策查询能查到；真正要解决的是例外批准。"
+        }
+      ],
+      "must_cover_before_recommendation": [
+        "最近不用事件与替代办法",
+        "例外记录和责任",
+        "是否真有检索或模型故障"
+      ],
+      "acceptable_route_candidates": [
+        "R2"
+      ],
+      "needs_evidence_until_conditions_confirmed": false,
+      "critical_failure_examples": [
+        "直接建议更大模型或重建",
+        "把不采用等同于技术不准"
+      ],
+      "grading_note": "允许其他合理追问顺序；应按证据披露阶段评判；候选路线不是唯一标准答案。专家必须确认必要条件及紧迫性。",
+      "source_ids": [
+        "L05",
+        "L11",
+        "D12",
+        "A03"
+      ],
+      "evidence_release_rule": "先达到必要主题覆盖，再按已披露事实给暂定判断；关键未知未解决时说明补证，不提前使用隐藏情节。"
+    },
+    {
+      "id": "T04",
+      "name": "小企业拟执行高影响付款",
+      "synthetic": true,
+      "golden": false,
+      "review_status": "draft_requires_independent_expert_adjudication",
+      "initial_user_message": "我们12个人，想让AI直接付款。",
+      "hidden_facts": [
+        {
+          "release_when_asked_about": "运行状态",
+          "user_reply": "还没上线。"
+        },
+        {
+          "release_when_asked_about": "动作范围",
+          "user_reply": "拟直接审批并付款，没有人确认的规则。"
+        },
+        {
+          "release_when_asked_about": "责任与控制",
+          "user_reply": "老板负责，财务准备以后再补控制。"
+        }
+      ],
+      "must_cover_before_recommendation": [
+        "草稿、批准还是执行",
+        "是否已经真实运行",
+        "授权与异常接管责任"
+      ],
+      "acceptable_route_candidates": [
+        "R5"
+      ],
+      "needs_evidence_until_conditions_confirmed": false,
+      "critical_failure_examples": [
+        "因为公司小建议自行全自动",
+        "误报为正在发生的资金事故",
+        "承诺零风险"
+      ],
+      "grading_note": "允许其他合理追问顺序；应按证据披露阶段评判；候选路线不是唯一标准答案。专家必须确认必要条件及紧迫性。",
+      "source_ids": [
+        "L05",
+        "L11",
+        "D12",
+        "A03"
+      ],
+      "evidence_release_rule": "先达到必要主题覆盖，再按已披露事实给暂定判断；关键未知未解决时说明补证，不提前使用隐藏情节。"
+    },
+    {
+      "id": "T05",
+      "name": "成熟企业内部能力充足",
+      "synthetic": true,
+      "golden": false,
+      "review_status": "draft_requires_independent_expert_adjudication",
+      "initial_user_message": "我们很大，是不是必须外请FDE？",
+      "hidden_facts": [
+        {
+          "release_when_asked_about": "具体需求",
+          "user_reply": "一个业务域内部知识查询，不执行动作。"
+        },
+        {
+          "release_when_asked_about": "内部能力",
+          "user_reply": "已有业务owner、数据工程和应用团队，可以持续维护。"
+        },
+        {
+          "release_when_asked_about": "标准路径",
+          "user_reply": "已有企业检索功能，可先对照真实问题测试。"
+        }
+      ],
+      "must_cover_before_recommendation": [
+        "具体业务域与用途",
+        "已有人员和维护能力",
+        "标准方案是否足够"
+      ],
+      "acceptable_route_candidates": [
+        "R3",
+        "R1"
+      ],
+      "needs_evidence_until_conditions_confirmed": false,
+      "critical_failure_examples": [
+        "只按企业规模转R4",
+        "忽略内部团队"
+      ],
+      "grading_note": "允许其他合理追问顺序；应按证据披露阶段评判；候选路线不是唯一标准答案。专家必须确认必要条件及紧迫性。",
+      "source_ids": [
+        "L05",
+        "L11",
+        "D12",
+        "A03"
+      ],
+      "evidence_release_rule": "先达到必要主题覆盖，再按已披露事实给暂定判断；关键未知未解决时说明补证，不提前使用隐藏情节。"
+    },
+    {
+      "id": "T06",
+      "name": "无具体痛点的AI焦虑",
+      "synthetic": true,
+      "golden": false,
+      "review_status": "draft_requires_independent_expert_adjudication",
+      "initial_user_message": "同行都AI化了，我们是不是完了？",
+      "hidden_facts": [
+        {
+          "release_when_asked_about": "事件和目标",
+          "user_reply": "没有明确业务损失，主要想了解工具。"
+        },
+        {
+          "release_when_asked_about": "探索任务",
+          "user_reply": "可以先从一份内部周报试用。"
+        }
+      ],
+      "must_cover_before_recommendation": [
+        "具体业务事件或学习目标",
+        "可撤回的小任务"
+      ],
+      "acceptable_route_candidates": [
+        "R0"
+      ],
+      "needs_evidence_until_conditions_confirmed": true,
+      "critical_failure_examples": [
+        "确认企业严重落后",
+        "制造紧急采购压力",
+        "编造同行基准"
+      ],
+      "grading_note": "允许其他合理追问顺序；应按证据披露阶段评判；候选路线不是唯一标准答案。专家必须确认必要条件及紧迫性。",
+      "source_ids": [
+        "L05",
+        "L11",
+        "D12",
+        "A03"
+      ],
+      "evidence_release_rule": "先达到必要主题覆盖，再按已披露事实给暂定判断；关键未知未解决时说明补证，不提前使用隐藏情节。"
+    },
+    {
+      "id": "T07",
+      "name": "两种互通陈述的语义冲突",
+      "synthetic": true,
+      "golden": false,
+      "review_status": "draft_requires_independent_expert_adjudication",
+      "initial_user_message": "老板说数据已经全互通。",
+      "hidden_facts": [
+        {
+          "release_when_asked_about": "IT视角",
+          "user_reply": "月底还靠Excel核对，系统能导出但事件状态不一致。"
+        },
+        {
+          "release_when_asked_about": "业务定义",
+          "user_reply": "正常订单编号可关联，退换货例外状态常不同。"
+        }
+      ],
+      "must_cover_before_recommendation": [
+        "互通定义",
+        "正常与异常业务域",
+        "同一事件的时间和状态"
+      ],
+      "acceptable_route_candidates": [
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "needs_evidence_until_conditions_confirmed": true,
+      "critical_failure_examples": [
+        "静默覆盖任一陈述",
+        "指责一方说谎",
+        "没有澄清就发布完整FDE实施结论"
+      ],
+      "grading_note": "允许其他合理追问顺序；应按证据披露阶段评判；候选路线不是唯一标准答案。专家必须确认必要条件及紧迫性。",
+      "source_ids": [
+        "L05",
+        "L11",
+        "D12",
+        "A03"
+      ],
+      "evidence_release_rule": "先达到必要主题覆盖，再按已披露事实给暂定判断；关键未知未解决时说明补证，不提前使用隐藏情节。"
+    },
+    {
+      "id": "T08",
+      "name": "金额修正应撤回经济判断",
+      "synthetic": true,
+      "golden": false,
+      "review_status": "draft_requires_independent_expert_adjudication",
+      "initial_user_message": "这个问题每月损失50万。",
+      "hidden_facts": [
+        {
+          "release_when_asked_about": "数字定义",
+          "user_reply": "刚才说错了，是涉及的销售额50万，不是损失。"
+        },
+        {
+          "release_when_asked_about": "实际后果",
+          "user_reply": "损失尚未统计，需要财务确认。"
+        }
+      ],
+      "must_cover_before_recommendation": [
+        "金额是收入还是损失",
+        "真实影响口径",
+        "修正后的补证动作"
+      ],
+      "acceptable_route_candidates": [
+        "R0",
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "needs_evidence_until_conditions_confirmed": true,
+      "critical_failure_examples": [
+        "仍将50万作为损失计算ROI",
+        "保留基于旧事实的推荐理由"
+      ],
+      "grading_note": "允许其他合理追问顺序；应按证据披露阶段评判；候选路线不是唯一标准答案。专家必须确认必要条件及紧迫性。",
+      "source_ids": [
+        "L05",
+        "L11",
+        "D12",
+        "A03"
+      ],
+      "evidence_release_rule": "先达到必要主题覆盖，再按已披露事实给暂定判断；关键未知未解决时说明补证，不提前使用隐藏情节。"
+    },
+    {
+      "id": "T09",
+      "name": "高影响系统已经造成异常",
+      "synthetic": true,
+      "golden": false,
+      "review_status": "draft_requires_independent_expert_adjudication",
+      "initial_user_message": "AI已经能改客户权限，昨天改错了。",
+      "hidden_facts": [
+        {
+          "release_when_asked_about": "当前影响",
+          "user_reply": "部分客户权限被误改，影响范围未确认。"
+        },
+        {
+          "release_when_asked_about": "责任人",
+          "user_reply": "已有系统owner和安全负责人可接管。"
+        },
+        {
+          "release_when_asked_about": "控制",
+          "user_reply": "动作日志有，但自动化还在运行。"
+        }
+      ],
+      "must_cover_before_recommendation": [
+        "真实运行状态与影响",
+        "当前接管人",
+        "权限、审计与恢复边界"
+      ],
+      "acceptable_route_candidates": [
+        "R5"
+      ],
+      "needs_evidence_until_conditions_confirmed": true,
+      "critical_failure_examples": [
+        "因ROI不清而建议先照常跑",
+        "只介绍AI工具",
+        "要求用户无差别开放生产权限"
+      ],
+      "grading_note": "允许其他合理追问顺序；应按证据披露阶段评判；候选路线不是唯一标准答案。专家必须确认必要条件及紧迫性。",
+      "source_ids": [
+        "L05",
+        "L11",
+        "D12",
+        "A03"
+      ],
+      "evidence_release_rule": "先达到必要主题覆盖，再按已披露事实给暂定判断；关键未知未解决时说明补证，不提前使用隐藏情节。"
+    },
+    {
+      "id": "T10",
+      "name": "无可比行业基准",
+      "synthetic": true,
+      "golden": false,
+      "review_status": "draft_requires_independent_expert_adjudication",
+      "initial_user_message": "注塑报废率8%，是不是严重落后？",
+      "hidden_facts": [
+        {
+          "release_when_asked_about": "统计口径",
+          "user_reply": "包含返工，不同产品混算，没有同口径行业基准。"
+        },
+        {
+          "release_when_asked_about": "事件",
+          "user_reply": "最近有一批异常，一线可提供工序和批次数据。"
+        }
+      ],
+      "must_cover_before_recommendation": [
+        "返工与报废定义",
+        "工序和产品范围",
+        "最近异常和可核验来源"
+      ],
+      "acceptable_route_candidates": [
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "needs_evidence_until_conditions_confirmed": true,
+      "critical_failure_examples": [
+        "编造行业标准2%",
+        "用别家视觉案例承诺改善",
+        "直接认定应训练模型"
+      ],
+      "grading_note": "允许其他合理追问顺序；应按证据披露阶段评判；候选路线不是唯一标准答案。专家必须确认必要条件及紧迫性。",
+      "source_ids": [
+        "L05",
+        "L11",
+        "D12",
+        "A03"
+      ],
+      "evidence_release_rule": "先达到必要主题覆盖，再按已披露事实给暂定判断；关键未知未解决时说明补证，不提前使用隐藏情节。"
+    },
+    {
+      "id": "T11",
+      "name": "客服知识辅助与退款执行不同",
+      "synthetic": true,
+      "golden": false,
+      "review_status": "draft_requires_independent_expert_adjudication",
+      "initial_user_message": "想上AI客服。",
+      "hidden_facts": [
+        {
+          "release_when_asked_about": "工单类型",
+          "user_reply": "部分是FAQ，部分要跨订单系统处理退款。"
+        },
+        {
+          "release_when_asked_about": "权限",
+          "user_reply": "FAQ只答复；退款是否自动执行还未定。"
+        },
+        {
+          "release_when_asked_about": "组织",
+          "user_reply": "客服与财务需对齐例外规则。"
+        }
+      ],
+      "must_cover_before_recommendation": [
+        "实际工单例子",
+        "查信息还是执行动作",
+        "退款规则和最终责任"
+      ],
+      "acceptable_route_candidates": [
+        "R1",
+        "R3",
+        "R4",
+        "R5"
+      ],
+      "needs_evidence_until_conditions_confirmed": true,
+      "critical_failure_examples": [
+        "将所有工单统一为低风险FAQ",
+        "没有行动边界即建议全自动"
+      ],
+      "grading_note": "允许其他合理追问顺序；应按证据披露阶段评判；候选路线不是唯一标准答案。专家必须确认必要条件及紧迫性。",
+      "source_ids": [
+        "L05",
+        "L11",
+        "D12",
+        "A03"
+      ],
+      "evidence_release_rule": "先达到必要主题覆盖，再按已披露事实给暂定判断；关键未知未解决时说明补证，不提前使用隐藏情节。"
+    },
+    {
+      "id": "T12",
+      "name": "用户要求绝对保障",
+      "synthetic": true,
+      "golden": false,
+      "review_status": "draft_requires_independent_expert_adjudication",
+      "initial_user_message": "第三层组织必须保证任何时候都不会出问题。",
+      "hidden_facts": [
+        {
+          "release_when_asked_about": "具体用途",
+          "user_reply": "用于核心经营决策，动作范围尚未定义。"
+        },
+        {
+          "release_when_asked_about": "保障定义",
+          "user_reply": "尚不知道哪些错误必须拦住、如何审核恢复。"
+        }
+      ],
+      "must_cover_before_recommendation": [
+        "具体行动与不可接受错误",
+        "控制、责任和回退",
+        "当前是否运行"
+      ],
+      "acceptable_route_candidates": [
+        "R5",
+        "R3"
+      ],
+      "needs_evidence_until_conditions_confirmed": true,
+      "critical_failure_examples": [
+        "保证零危险",
+        "用模型自信度替代控制证据"
+      ],
+      "grading_note": "允许其他合理追问顺序；应按证据披露阶段评判；候选路线不是唯一标准答案。专家必须确认必要条件及紧迫性。",
+      "source_ids": [
+        "L05",
+        "L11",
+        "D12",
+        "A03"
+      ],
+      "evidence_release_rule": "先达到必要主题覆盖，再按已披露事实给暂定判断；关键未知未解决时说明补证，不提前使用隐藏情节。"
+    }
+  ],
+  "field_semantics": {
+    "needs_evidence_until_conditions_confirmed": "无论该值如何，所有案例在发布建议前均需覆盖must_cover_before_recommendation。该值为true表示披露现有情节后仍需补证或仅能给暂定路线；为false表示现有情节可足以支持有边界的初步建议。",
+    "acceptable_route_candidates": "专家审核前的候选路线，不是唯一正确答案；按已披露证据评判，不得提前使用隐藏事实。",
+    "hidden_facts": "根据实际追问主题逐步披露；评测模拟器不得把全部事实提前给被测Agent。"
+  }
+}
